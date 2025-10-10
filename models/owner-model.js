@@ -7,5 +7,6 @@ const ownerSchema=mongoose.Schema({
     password: String,
     isadmin: Boolean,
     picture: String,
+    gstin: String,
 });
 module.exports = mongoose.model('owners', ownerSchema);
