@@ -1,11 +1,11 @@
 const jwt=require("jsonwebtoken");
 const usermodel= require("../models/user-model");
 const isloggedin = async (req,res,next)=>{
-    if(!req.cookie.token) {
+    if(!req.cookies.token) {
         req.flash("You must be logged in ");
-        res.render("/");
-        
-    }
+        res.redirect("/");
+     
+    }else{
     try{
         
         let decoded = jwt.verify(token, process.env.JWT_KEY);
@@ -20,6 +20,7 @@ const isloggedin = async (req,res,next)=>{
         res.redirect("/");
 
     }
+}
    
 
 }

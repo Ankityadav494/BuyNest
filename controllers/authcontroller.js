@@ -28,6 +28,7 @@ let  newuser = await usermodel.create({
     res.status(500).send({ error: err.message });
   }
 };
+
 const loginuser = async (req, res) => {
   try {
     let { email, password } = req.body;
@@ -43,7 +44,7 @@ const loginuser = async (req, res) => {
       if (result) {
         const token = generatetoken(user);
         res.cookie("token", token);
-        res.status(200).send("Login successful");
+        res.redirect("/shop");
       } else {
         res.status(400).send("Incorrect password");
       }
@@ -53,7 +54,13 @@ const loginuser = async (req, res) => {
   }
 };
 
+const logout = async (req,res)=>{
+  res.cookie("token",);
+
+  res.send("logout successfully");
+};
      
 
 module.exports.userregister = userregister;
 module.exports.loginuser=loginuser;
+module.exports.logout=logout;

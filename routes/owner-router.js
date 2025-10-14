@@ -4,11 +4,11 @@ const bcrypt=require('bcrypt');
 const router=express.Router();
 const ownermodel=require('../models/owner-model');
 
-router.get('/',(req,res)=>{
-    res.send("Owner Home Page");
+router.get('/admin',(req,res)=>{
+    res.render("admin");
 });
 
-if(process.env.NODE_ENV!=='production'){
+if(process.env.NODE_ENV!=='development'){
 
     router.post('/create',async (req,res)=>{
         const {name,email,phone,password}=req.body;
