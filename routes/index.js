@@ -9,8 +9,8 @@ express.Router();
 router.get("/",(req,res)=>{
   res.render("index");
 });
-router.get('/logout',isloggedin,logout);
-router.get('/shop',isloggedin,async (req,res)=>{
+router.get('/logout',logout);
+router.get('/shop',async (req,res)=>{
         res.render("shop");
 });
 module.exports = router;

@@ -3,9 +3,21 @@ const bcrypt=require('bcrypt');
 
 const router=express.Router();
 const ownermodel=require('../models/owner-model');
+const upload =require('../middlewares/upload');
+const productmodel=require("../models/product-model");
+const { text } = require('body-parser');
 
 router.get('/admin',(req,res)=>{
     res.render("admin");
+});
+router.post('/add',upload.single("image"),async (req,res)=>{
+    let{name,price,discount,bgcolor,textcolor,panelcolor}=req.body;
+    let product=await productmodel.create({
+        image:req.file.buffer,
+        name,price,discount,bgcolor,panelcolor,textcolor
+    });
+    res.redirect("/shop");
+
 });
 
 if(process.env.NODE_ENV!=='development'){
