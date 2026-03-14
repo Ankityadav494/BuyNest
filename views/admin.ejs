@@ -10,50 +10,50 @@
 <body class="min-h-screen bg-gray-50 flex">
 
   <!-- Sidebar -->
-  <aside class="w-1/5 bg-white shadow-sm p-6 border-r">
-    <h1 class="text-2xl font-semibold mb-6">BuyNest</h1>
-    <nav class="flex flex-col space-y-3">
-      <a href="#" class="text-gray-700 hover:text-blue-600">All Products</a>
-      <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Create new product</a>
+  <aside class="w-1/5 bg-white shadow-sm p-6 border-r transition-shadow duration-300 hover:shadow-md">
+    <h1 class="text-2xl font-semibold mb-6 transition-colors duration-300 hover:text-blue-600 cursor-default">BuyNest</h1>
+    <nav class="flex flex-col space-y-1">
+      <a href="#" class="nav-item text-gray-700">All Products</a>
+      <a href="#" class="nav-item active text-gray-700">Create new product</a>
     </nav>
   </aside>
 
   <!-- Main Content -->
-  <main class="flex-1 p-10">
+  <main class="flex-1 p-10 animate-fade-in">
     <h2 class="text-2xl font-semibold mb-6">Create New Product</h2>
 
     <!-- Product Form -->
-    <form method="post" action="/owner/add" class="max-w-2xl bg-white p-6 rounded-lg shadow-sm border" enctype="multipart/form-data">
+    <form method="post" action="/owner/add" class="max-w-2xl card-interactive bg-white p-6 rounded-lg shadow-sm border" enctype="multipart/form-data">
 
       <!-- Product Details -->
       <h3 class="text-lg font-semibold mb-3">Product Details</h3>
       <div class="mb-4">
         <label class="block text-gray-700 mb-1">Product Image</label>
-        <input type="file" name="image" class="block w-full border rounded p-2" />
+        <input type="file" name="image" class="input-glow block w-full border rounded-lg p-2 cursor-pointer" />
 
       </div>
 
       <div class="grid grid-cols-2 gap-4 mb-4">
-        <input type="text" name="name" placeholder="Product Name" class="border rounded p-2 w-full" />
-        <input type="text" name="price" placeholder="Product Price" class="border rounded p-2 w-full" />
+        <input type="text" name="name" placeholder="Product Name" class="input-glow border rounded-lg p-2 w-full" />
+        <input type="text" name="price" placeholder="Product Price" class="input-glow border rounded-lg p-2 w-full" />
       </div>
 
       <div class="mb-6">
-        <input type="text" name="discount" placeholder="Discount Price" class="border rounded p-2 w-full" />
+        <input type="text" name="discount" placeholder="Discount Price" class="input-glow border rounded-lg p-2 w-full" />
       </div>
 
       <!-- Panel Details -->
       <h3 class="text-lg font-semibold mb-3">Panel Details</h3>
       <div class="grid grid-cols-2 gap-4 mb-4">
-        <input type="text" name="bgcolor" placeholder="Background Color" class="border rounded p-2 w-full" />
-        <input type="text" name="panelcolor" placeholder="Panel Color" class="border rounded p-2 w-full" />
+        <input type="text" name="bgcolor" placeholder="Background Color" class="input-glow border rounded-lg p-2 w-full" />
+        <input type="text" name="panelcolor" placeholder="Panel Color" class="input-glow border rounded-lg p-2 w-full" />
       </div>
 
       <div class="mb-6">
-        <input type="text" name="textcolor" placeholder="Text Color" class="border rounded p-2 w-full" />
+        <input type="text" name="textcolor" placeholder="Text Color" class="input-glow border rounded-lg p-2 w-full" />
       </div>
 
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      <button type="submit" class="btn-press bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium cursor-pointer">
         Create New Product
       </button>
     </form>

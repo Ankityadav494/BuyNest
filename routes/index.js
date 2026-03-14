@@ -1,16 +1,15 @@
-const express= require("express");
-
+const express = require("express");
 const router = express.Router();
-const {logout }= require('../controllers/authcontroller');
-const {isloggedin}=require("../middlewares/loggedin");
+const { logout } = require("../controllers/authcontroller");
+const { isloggedin } = require("../middlewares/loggedin");
 
-express.Router();
-
-router.get("/",(req,res)=>{
-  res.render("index");
+router.get("/", (req, res) => {
+  res.render("index", { message: req.flash("error") });
 });
-router.get('/logout',logout);
-router.get('/shop',async (req,res)=>{
-        res.render("shop");
+
+router.get("/logout", logout);
+
+router.get("/shop", isloggedin, (req, res) => {
+  res.render("shop", { user: req.user });
 });
 module.exports = router;
